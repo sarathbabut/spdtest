@@ -127,7 +127,7 @@ int download_url_file(void)
 	
 	memset(cmd,0x00,1024);
         
-sprintf(cmd,"curl -s  --connect-timeout 20 --max-time 60 -u rnd:rnd123 ftp://115.111.229.10/url_file > /tmp/url_buff");
+	sprintf(cmd,"curl -s -k  --connect-timeout 20 --max-time 40 https://raw.githubusercontent.com/sarathbabut/spdtest/master/url_file > /tmp/url_buff");
 	
 	ret =  system (cmd);
 		
