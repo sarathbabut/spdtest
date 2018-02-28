@@ -123,16 +123,26 @@ int download_url_file(void)
 {
 	int ret;
 	
+	float t_start,t_stop;
+	
 	char cmd[1024]="";
 	
 	memset(cmd,0x00,1024);
         
-sprintf(cmd,"curl -s  --connect-timeout 20 --max-time 60 -u rnd:rnd123 ftp://115.111.229.10/url_file > /tmp/url_buff");
+sprintf(cmd,"curl -s -k --connect-timeout 20 --max-time 40 https://raw.githubusercontent.com/sarathbabut/spdtest/master/url_file > /tmp/url_buff");
+	
+	t_start = get_uptime();
 	
 	ret =  system (cmd);
+
+	
 		
-	if (ret == 0 )
+	if (ret == 0 )	
+	{
+	t_stop=get_uptime();
+	fprintf(stdout, "%lf url\n",t_stop-t_start);
 	return 0;
+	}
 
 	return -1;
 }
