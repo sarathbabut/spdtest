@@ -129,14 +129,12 @@ int download_url_file(void)
 	
 	memset(cmd,0x00,1024);
         
-sprintf(cmd,"curl -s -k --connect-timeout 20 --max-time 40 https://raw.githubusercontent.com/sarathbabut/spdtest/master/url_file > /tmp/url_buff");
+	sprintf(cmd,"curl -s -k --connect-timeout 20 --max-time 40 https://raw.githubusercontent.com/sarathbabut/spdtest/master/url_file > /tmp/url_buff");
 	
 	t_start = get_uptime();
 	
 	ret =  system (cmd);
 
-	
-		
 	if (ret == 0 )	
 	{
 	t_stop=get_uptime();
